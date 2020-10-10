@@ -1,0 +1,28 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		}
+		,{
+            "path" : "pages/amap/amap",
+            "style" : {}
+        }
+	    ,{
+            "path" : "pages/infowindow/infowindow",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/navigation/navigation",
+            "style" : {}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}
