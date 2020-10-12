@@ -16,6 +16,8 @@ export default {
 </script>
 
 <script module="amap" lang="renderjs">
+import config from './config.js'
+	
 export default {
 	data() {
 		return {
@@ -29,8 +31,7 @@ export default {
 		} else {
 			// 动态引入较大类库避免影响页面展示
 			const script = document.createElement('script')
-			const AK = 'eed2ab9276e5e25e6b9eae891ab3dc8f'//使用自己的Web端(JS API)高德地图key值
-			script.src = 'https://webapi.amap.com/maps?v=1.4.15&key=' + AK
+			script.src = 'https://webapi.amap.com/maps?v=1.4.15&key=' + config.JSAPIAK
 			script.onload = this.initAmap.bind(this)
 			document.head.appendChild(script)
 		}

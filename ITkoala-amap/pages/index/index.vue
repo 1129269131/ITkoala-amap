@@ -10,6 +10,9 @@
 			<view style="margin: 15rpx;">
 				<button type="primary" @click.stop="toNavigationPage">路线规划</button>
 			</view>
+			<view style="margin: 15rpx;">
+				<button type="primary" @click.stop="toGeolocationPage">定位当前位置</button>
+			</view>
 		</view>
 	</view>
 </template>
@@ -38,6 +41,12 @@
 			toNavigationPage(){
 				uni.navigateTo({
 					url: '/pages/navigation/navigation'
+				})
+			},
+			// 跳转定位当前位置页面
+			toGeolocationPage(){
+				uni.navigateTo({
+					url: '/pages/geolocation/geolocation'
 				})
 			}
 		}

@@ -18,6 +18,10 @@
             "path" : "pages/navigation/navigation",
             "style" : {}
         }
+        ,{
+            "path" : "pages/geolocation/geolocation",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

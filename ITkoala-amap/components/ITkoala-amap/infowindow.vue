@@ -59,6 +59,7 @@ export default {
 </script>
 
 <script module="amap" lang="renderjs">
+import config from './config.js'
 
 const selectedStart = 'static/ITkoala-amap/selectedStart.png' //选中的图片
 
@@ -76,8 +77,7 @@ export default {
 		} else {
 			// 动态引入较大类库避免影响页面展示
 			const script = document.createElement('script')
-			const AK = '2407131e760f934a99b18e675b358e07'//使用自己的Web服务高德地图key值
-			script.src = 'https://webapi.amap.com/maps?v=1.4.15&key=' + AK
+			script.src = 'https://webapi.amap.com/maps?v=1.4.15&key=' + config.WEBAK
 			script.onload = this.initAmap.bind(this)
 			document.head.appendChild(script)
 		}
