@@ -9,17 +9,6 @@
 	export default {
 		components:{
 			amap
-		},
-		data() {
-			return {
-				
-			}
-		},
-		onLoad() {
-	
-		},
-		methods: {
-	
 		}
 	}
 </script>

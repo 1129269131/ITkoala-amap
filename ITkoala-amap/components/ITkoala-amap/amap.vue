@@ -7,6 +7,7 @@
 
 <script>
 const start = 'static/ITkoala-amap/start.png'
+
 export default {
 	data() {
 		return {
@@ -16,6 +17,7 @@ export default {
 	},
 	mounted() {
 		this.$nextTick(() => {
+			// this.getMapData()
 			this.getMapData()
 		})
 	},
@@ -49,7 +51,7 @@ export default {
 </script>
 
 <script module="amap" lang="renderjs">
-import config from './config.js'
+import config from '@/components/ITkoala-amap/config.js'
 
 const selectedStart = 'static/ITkoala-amap/selectedStart.png' //选中的图片
 
@@ -100,14 +102,14 @@ export default {
 					})
 
 					marker.on('click', (e) => {
-						if(!!prevMarker){
+						if(prevMarker){
 							prevMarker.setIcon(prevIcon)
 						}
 						prevIcon = item.icon
 						prevMarker = marker
 						marker.setIcon(selectedStart)
 						this.dataIndex = index
-						this.onClick(null,this.ownerInstanceObj)
+						this.onClick(this.ownerInstanceObj)
 					})
 
 					this.map.add(marker)
@@ -118,8 +120,9 @@ export default {
 		updateEcharts(newValue, oldValue, ownerInstance, instance) {
 			// 监听 service 层数据变更
 			this.ownerInstanceObj = ownerInstance
+			this.initMarkers()
 		},
-		onClick(event, ownerInstance) {
+		onClick(ownerInstance) {
 			// 调用 service 层的方法
 			ownerInstance.callMethod('onViewClick', {
 				dataIndex: this.dataIndex

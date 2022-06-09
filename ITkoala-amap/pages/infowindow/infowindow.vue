@@ -9,17 +9,6 @@
 	export default {
 		components:{
 			infowindow
-		},
-		data() {
-			return {
-				
-			}
-		},
-		onLoad() {
-	
-		},
-		methods: {
-	
 		}
 	}
 </script>

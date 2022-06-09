@@ -1,17 +1,18 @@
 <template>
 	<view>
-		<geolocation></geolocation>
+		<poiSearch></poiSearch>
 	</view>
 </template>
 
 <script>
-	import geolocation from '@/components/ITkoala-amap/geolocation.vue'
+	import poiSearch from '@/components/ITkoala-amap/poiSearch.vue'
 	export default {
 		components:{
-			geolocation
+			poiSearch
 		}
 	}
 </script>
 
 <style>
+
 </style>

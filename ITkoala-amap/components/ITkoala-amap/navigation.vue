@@ -16,7 +16,7 @@ export default {
 </script>
 
 <script module="amap" lang="renderjs">
-import config from './config.js'
+import config from '@/components/ITkoala-amap/config.js'
 	
 export default {
 	data() {

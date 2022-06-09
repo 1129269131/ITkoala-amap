@@ -1,10 +1,11 @@
 <template>
 	<view class="amap-container">
 		<view :change:prop="amap.updateEcharts" id="amap"></view>
-		<view style="margin: 30rpx;">
-			<button type="primary" @click="amap.onClick">定位当前位置</button>
+		<view style="margin: 30rpx;"><button type="primary" @click="amap.onClick">定位当前位置</button></view>
+		<view style="margin: 15rpx;">当前位置信息：lng:{{ currentPosition.lng }} , lat:{{ currentPosition.lat }}</view>
+		<view class="">
+			<input class="uni-input" id="tipinput"/>
 		</view>
-		<view style="margin: 15rpx;">当前位置信息：lng:{{ currentPosition.lng }} , lat:{{currentPosition.lat}}</view>
 	</view>
 </template>
 
@@ -16,9 +17,7 @@ export default {
 			currentPosition: {}
 		}
 	},
-	mounted() {
-		
-	},
+	mounted() {},
 	methods: {
 		//地图点击回调事件
 		onViewClick(params) {
@@ -44,7 +43,7 @@ export default {
 		} else {
 			// 动态引入较大类库避免影响页面展示
 			const script = document.createElement('script')
-			script.src = 'https://webapi.amap.com/maps?v=1.4.15&key=' + config.WEBAK
+			script.src = 'https://webapi.amap.com/maps?v=1.4.15&key=' + config.JSAPIAK + '&plugin=AMap.Autocomplete,AMap.PlaceSearch'
 			script.onload = this.initAmap.bind(this)
 			document.head.appendChild(script)
 		}
@@ -54,6 +53,23 @@ export default {
 			this.map = new AMap.Map('amap', {
 				resizeEnable: true
 			})
+
+			//输入提示
+			let element = document.getElementById('tipinput')
+			let autoOptions = {
+				input: element
+			}
+			let auto = new AMap.Autocomplete(autoOptions)
+			let placeSearch = new AMap.PlaceSearch({
+				map: this.map
+			}) //构造地点查询类
+			AMap.event.addListener(auto, 'select', function(e) {
+				console.log('---e---')
+				console.log(e)
+			  placeSearch.setCity(e.poi.adcode)
+			  placeSearch.search(e.poi.name)
+			})
+			
 		},
 		updateEcharts(newValue, oldValue, ownerInstance, instance) {
 			// 监听 service 层数据变更

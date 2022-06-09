@@ -13,17 +13,22 @@
 			<view style="margin: 15rpx;">
 				<button type="primary" @click.stop="toGeolocationPage">定位当前位置</button>
 			</view>
+			<view style="margin: 15rpx;">
+				<button type="primary" @click.stop="toPoiSearchPage">POI搜索</button>
+			</view>
+			
+			<view style="margin: 15rpx;">
+				<button type="primary" @click.stop="toTMapPage">腾讯地图</button>
+			</view>
+			<view style="margin: 15rpx;">
+				<button type="primary" @click.stop="toBMapPage">百度地图</button>
+			</view>
 		</view>
 	</view>
 </template>
 
 <script>
 	export default {
-		data() {
-			return {
-				
-			}
-		},
 		methods: {
 			// 跳转高德地图+renderjs 初体验页面
 			toAmapPage(){
@@ -47,6 +52,25 @@
 			toGeolocationPage(){
 				uni.navigateTo({
 					url: '/pages/geolocation/geolocation'
+				})
+			},
+			// 跳转POI搜索页面
+			toPoiSearchPage(){
+				uni.navigateTo({
+					url: '/pages/poiSearch/poiSearch'
+				})
+			},
+			
+			// 跳转腾讯地图页面
+			toTMapPage(){
+				uni.navigateTo({
+					url: '/pages/TMap/TMap'
+				})
+			},
+			// 跳转百度地图页面
+			toBMapPage(){
+				uni.navigateTo({
+					url: '/pages/BMap/BMap'
 				})
 			}
 		}

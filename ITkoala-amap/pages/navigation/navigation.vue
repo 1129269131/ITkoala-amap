@@ -9,17 +9,6 @@
 	export default {
 		components:{
 			navigation
-		},
-		data() {
-			return {
-				
-			}
-		},
-		onLoad() {
-	
-		},
-		methods: {
-	
 		}
 	}
 </script>
