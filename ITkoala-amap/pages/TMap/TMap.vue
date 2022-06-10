@@ -42,8 +42,7 @@ export default {
 </script>
 
 <script module="tmap" lang="renderjs">
-const start = 'static/ITkoala-amap/start.png'
-const selectedStart = 'static/ITkoala-amap/selectedStart.png' //选中的图片
+import config from '@/components/ITkoala-amap/config.js'
 
 export default {
 	data() {
@@ -59,9 +58,8 @@ export default {
 			this.initAmap()
 		} else {
 			const script = document.createElement('script')
-
-			const AK = '6ZOBZ-NMN62-IEWUF-CL4FU-U7MXF-5ZFZR'
-			script.src = 'https://map.qq.com/api/gljs?v=1.exp&key=' + AK
+			
+			script.src = 'https://map.qq.com/api/gljs?v=1.exp&key=' + config.TMAP_JSAPIAK
 			script.onload = this.initAmap.bind(this)
 			document.head.appendChild(script)
 		}
@@ -103,13 +101,13 @@ export default {
 						width: 35,
 						height: 30,
 						anchor: { x: 16, y: 16 },
-						src: start
+						src: 'https://mapapi.qq.com/web/lbs/javascriptGL/demo/img/markerDefault.png'
 					}),
 					selected: new TMap.MarkerStyle({
 						width: 35,
 						height: 35,
 						anchor: { x: 16, y: 32 },
-						src: selectedStart
+						src: 'https://mapapi.qq.com/web/lbs/javascriptGL/demo/img/markerNew.png'
 					})
 				}
 			})

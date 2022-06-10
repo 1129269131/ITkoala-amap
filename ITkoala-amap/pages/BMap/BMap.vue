@@ -22,16 +22,16 @@
 			getMapData() {
 				this.markerList = [
 				{
-					lng: 116.388771,
-					lat: 39.928242
+					lng: 116.32715,
+					lat: 39.923099
 				},
 				{
-					lng: 116.392157,
-					lat: 39.930482
+					lng: 116.436959,
+					lat: 39.886347
 				},
 				{
-					lng: 116.389219,
-					lat: 39.925809
+					lng: 116.420861,
+					lat: 39.95972
 				}]
 			},
 			//图表点击回调事件
@@ -43,6 +43,7 @@
 </script>
 
 <script module="bmap" lang="renderjs">
+	import config from '@/components/ITkoala-amap/config.js'
 	const start = 'static/ITkoala-amap/start.png'
 	const selectedStart = 'static/ITkoala-amap/selectedStart.png' //选中的图片
 	
@@ -63,15 +64,14 @@
 				}
 					  
 				const script = document.createElement('script')
-				const AK = 'pstIODKaL39V6fUeBHsfgmjIR9pXVMHx'
-				script.src = 'https://api.map.baidu.com/api?v=2.0&ak=' + AK + '&s=1&callback=onBMapCallback'
+				script.src = 'https://api.map.baidu.com/api?v=2.0&ak=' + config.BMAP_JSAPIAK + '&s=1&callback=onBMapCallback'
 				document.head.appendChild(script)
 			}
 		},
 		methods: {
 			initAmap() {
 				this.map = new BMap.Map("bmap",{mapType:BMAP_HYBRID_MAP})
-				let point = new BMap.Point(116.845832,26.831398)
+				let point = new BMap.Point(116.404188,39.916458)
 				this.map.centerAndZoom(point, 10)
 				this.map.enableScrollWheelZoom(true) //开启鼠标滚轮缩放
 				this.map.setMaxZoom(16)
